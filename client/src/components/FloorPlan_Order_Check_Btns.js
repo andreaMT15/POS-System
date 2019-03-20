@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import BillModal from "../components/BillModal";
 import { Link } from "react-router-dom";
 
 const myStyles = {
@@ -26,16 +25,11 @@ class Order_Check_Btn extends React.Component {
         hidden: "d-none"
       });
     }
-    // console.log(this.props.roleView);
-    // console.log("hidden:",this.state.hidden);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.roleView !== this.props.roleView) {
-      if (
-        this.props.roleView === "manager" ||
-        this.props.roleView === "server"
-      ) {
+      if (this.props.roleView === "manager" || this.props.roleView === "server") {
         this.setState({
           hidden: ""
         });
@@ -56,11 +50,6 @@ class Order_Check_Btn extends React.Component {
             Enter Order
           </Button>
         </Link>
-
-        <BillModal
-          tables={this.props.tables}
-          activeTable={this.props.activeTable}
-        />
       </div>
     );
   }
